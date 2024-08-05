@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, computed } from 'vue';
+import { defineComponent, ref, reactive, computed, onMounted } from 'vue';
 
 interface TodoList {
   id: number;
@@ -49,6 +49,12 @@ interface TodoList {
 export default defineComponent({
   name: 'TodoApp',
   setup() {
+    onMounted(() => {
+      console.log('Component mounted');
+      // 在组件挂载后执行的逻辑
+    });
+
+
     const newTodo = ref('');
     const todoList = reactive<TodoList[]>([]);
     const category = ref('all');
